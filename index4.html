@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Saya</title>
+    <link rel="stylesheet" href="css/porto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f3f4f6, #e5e5e5);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #1f2937;
+            color: #fff;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #fbbf24;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #fbbf24;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .social-media {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-media a {
+            color: #fff;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #fbbf24;
+            transform: scale(1.3);
+        }
+
+        .hero-slide {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #333;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slide {
+            width: 100%;
+            min-width: 100%;
+            height: 1000px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .slide-content {
+            color: #fff;
+            text-align: center;
+            max-width: 700px;
+            padding: 0 20px;
+            animation: fadeInUp 1.5s ease-in-out;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            transform: translateY(20px);
+        }
+
+        .slide-content.animate__fadeInUp {
+            animation: fadeInUp 1.5s ease-in-out forwards;
+        }
+
+        .slide-title {
+            font-size: 60px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .slide-title span {
+            color: #fbbf24;
+            animation: colorChange 1s infinite;
+        }
+
+        .slide-text {
+            font-size: 24px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            background-color: #1f2937;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            border: 2px solid #fbbf24;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #fbbf24;
+            color: #1f2937;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes slideDown {
+            from {transform: translateY(-100px);}
+            to {transform: translateY(0);}
+        }
+
+        @keyframes colorChange {
+            0% {color: #fbbf24;}
+            50% {color: #ff9900;}
+            100% {color: #fbbf24;}
+        }
+
+        @keyframes fadeInUp {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .about-section, .projects-section, .contact-section {
+            padding: 80px 20px;
+            text-align: center;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        .about-section {
+            background-color: #374151;
+            color: #fff;
+        }
+
+        .about-section .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .about-section .profile img {
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border: 4px solid #fbbf24;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-section .profile img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .about-section .profile h2 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .about-section .profile p {
+            font-size: 20px;
+            margin: 10px 0 0;
+            line-height: 1.6;
+        }
+
+        .projects-section {
+            background-color: #e5e7eb;
+            padding-bottom: 100px; /* Add padding to accommodate the gallery */
+        }
+
+        .project-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .project-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .project-item h3 {
+            font-size: 24px;
+            margin: 10px 0;
+            padding: 0 15px;
+        }
+
+        .project-item p {
+            font-size: 16px;
+            padding: 0 15px 15px;
+        }
+
+        .project-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .project-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .contact-section {
+            background-color: #1f2937;
+            color: #fff;
+        }
+
+        .contact-button {
+            background-color: #4b5563;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            border: 2px solid #fbbf24;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .contact-button:hover {
+            background-color: #fbbf24;
+            color: #1f2937;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .slide-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .nav-btn {
+            background-color: rgba(0,0,0,0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn:hover {
+            background-color: rgba(0,0,0,0.8);
+            transform: scale(1.1);
+        }
+
+        .nav-btn:focus {
+            outline: none;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>PORTOFOLIO</h1>
+            <nav>
+                <ul>
+                    <li><a href="index5.html">TENTANG</a></li>
+                    <li><a href="index6.html">PROYEK</a></li>
+                    <li><a href="index8.html">SKILL</a></li>
+                    <li><a href="index7.html">KONTAK</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/zzaa.____/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/keysamahesa/keysamahesa" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Slide Section -->
+    <section class="hero-slide">
+        <div class="slides">
+            <div class="slide" style="background-image: url('images/slide1.jpg');">
+                <div class="slide-content animate__animated animate__fadeInUp">
+                    <h2 class="slide-title animate__animated animate__fadeIn">Selamat datang di web portofolio <span>ezaradityafahlevi</span></h2>
+                    <p class="slide-text animate__animated animate__fadeIn">Saya adalah seorang <span>software Developer</span> yang siap membantu Anda mewujudkan ide menjadi kenyataan.</p>
+                    <a href="#projects" class=""></a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/slide2.jpg');">
+                <div class="slide-content animate__animated animate__fadeInUp">
+                    <h2 class="slide-title">Proyek Terbaru</h2>
+                    <p class="slide-text">Jelajahi proyek-proyek terbaru saya yang menggunakan teknologi terkini.</p>
+                    <a href="#projects" class=""></a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/slide3.jpg');">
+                <div class="slide-content animate__animated animate__fadeInUp">
+                    <h2 class="slide-title">Hubungi Saya</h2>
+                    <p class="slide-text">Tertarik bekerja sama? Mari kita diskusikan ide-ide hebat.</p>
+                    <a href="#contact" class=""></a>
+                </div>
+            </div>
+            <!-- Tambahkan lebih banyak slide jika diperlukan -->
+            <div class="slide" style="background-image: url('images/slide4.jpg');">
+                <div class="slide-content animate__animated animate__fadeInUp">
+                    <h2 class="slide-title">Inovasi dan Kreativitas</h2>
+                    <p class="slide-text">Temukan bagaimana saya mengaplikasikan inovasi dalam setiap proyek.</p>
+                    <a href="#projects" class=""></a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/slide5.jpg');">
+                <div class="slide-content animate__animated animate__fadeInUp">
+                    <h2 class="slide-title">Kemampuan dan Keahlian</h2>
+                    <p class="slide-text">Pelajari lebih lanjut tentang keahlian yang saya miliki dan bagaimana saya dapat membantu.</p>
+                    <a href="#about" class=""></a>
+                </div>
+            </div>
+            <!-- Slide Navigation -->
+            <div class="slide-nav">
+                <button class="nav-btn" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+                <button class="nav-btn" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+   
+
+    
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        const slides = document.querySelector('.slides');
+        const slideArray = Array.from(document.querySelectorAll('.slide'));
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const offset = -index * 100;
+            slides.style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slideArray.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slideArray.length) % slideArray.length;
+            showSlide(currentIndex);
+        }
+
+        document.getElementById('nextSlide').addEventListener('click', nextSlide);
+        document.getElementById('prevSlide').addEventListener('click', prevSlide);
+
+        setInterval(nextSlide, 5000); // Ubah slide setiap 4 detik
+    </script>
+</body>
+</html>
+<script>
+    // Smooth Scrolling for Navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+                // Active link effect
+                document.querySelectorAll('nav ul li a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
+
+    // Parallax Effect for Hero Slide and Header
+    window.addEventListener('scroll', () => {
+        const parallax = document.querySelector('.hero-slide');
+        const header = document.querySelector('header');
+        const scrollPosition = window.pageYOffset;
+
+        if (parallax) {
+            // Parallax effect
+            parallax.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+        }
+
+        // Shrink header on scroll
+        if (scrollPosition > 50) {
+            header.classList.add('shrink');
+        } else {
+            header.classList.remove('shrink');
+        }
+    });
+
+    // Animate Elements on Scroll
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        const windowHeight = window.innerHeight;
+        const offset = 100;
+
+        elements.forEach(el => {
+            const elementPosition = el.getBoundingClientRect().top;
+
+            if (elementPosition < windowHeight - offset) {
+                el.classList.add('animate__animated', 'animate__fadeInUp', 'visible');
+            } else {
+                el.classList.remove('visible'); // To allow re-triggering of animation
+            }
+        });
+    };
+
+    // Add scroll event listener for animations
+    window.addEventListener('scroll', animateOnScroll);
+
+    // Add additional animations and effects on load
+    document.addEventListener('DOMContentLoaded', () => {
+        // Animate elements on load
+        animateOnScroll();
+
+        // Header animation on load
+        const header = document.querySelector('header');
+        if (header) {
+            header.classList.add('animate__animated', 'animate__slideInDown');
+        }
+
+        // Delay animation for slide content
+        const slidesContent = document.querySelectorAll('.slide-content');
+        slidesContent.forEach((content, index) => {
+            content.style.animationDelay = `${index * 0.3}s`;
+        });
+    });
+
+    // Back button functionality
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<style>
+    /* Media queries for responsiveness */
+
+    @media screen and (max-width: 768px) {
+        /* Header */
+        .navbar {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        nav ul {
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .social-media {
+            justify-content: flex-start;
+            margin-top: 10px;
+        }
+
+        .navbar h1 {
+            font-size: 24px;
+        }
+
+        nav ul li a {
+            font-size: 16px;
+        }
+
+        /* Hero Slide */
+        .hero-slide {
+            height: 70vh;
+        }
+
+        .slide-title {
+            font-size: 40px;
+        }
+
+        .slide-text {
+            font-size: 18px;
+        }
+
+        .cta-button {
+            font-size: 18px;
+            padding: 12px 24px;
+        }
+
+        /* About Section */
+        .about-section .profile img {
+            width: 140px;
+            height: 140px;
+        }
+
+        .about-section .profile h2 {
+            font-size: 28px;
+        }
+
+        .about-section .profile p {
+            font-size: 18px;
+        }
+
+        /* Projects Section */
+        .project-gallery {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .project-item {
+            width: 90%;
+            max-width: 350px;
+        }
+
+        .project-item h3 {
+            font-size: 22px;
+        }
+
+        .project-item p {
+            font-size: 16px;
+        }
+
+        /* Contact Section */
+        .contact-button {
+            font-size: 18px;
+            padding: 12px 24px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        /* Navbar */
+        .navbar h1 {
+            font-size: 20px;
+        }
+
+        nav ul li a {
+            font-size: 14px;
+        }
+
+        .social-media a {
+            font-size: 20px;
+        }
+
+        /* Hero Slide */
+        .hero-slide {
+            height: 60vh;
+        }
+
+        .slide-title {
+            font-size: 32px;
+        }
+
+        .slide-text {
+            font-size: 16px;
+        }
+
+        .cta-button {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        /* About Section */
+        .about-section .profile img {
+            width: 120px;
+            height: 120px;
+        }
+
+        .about-section .profile h2 {
+            font-size: 24px;
+        }
+
+        .about-section .profile p {
+            font-size: 16px;
+        }
+
+        /* Projects Section */
+        .project-item {
+            width: 95%;
+        }
+
+        .project-item h3 {
+            font-size: 20px;
+        }
+
+        .project-item p {
+            font-size: 14px;
+        }
+
+        /* Contact Section */
+        .contact-button {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+    }
+</style>
+
+

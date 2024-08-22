@@ -1,0 +1,108 @@
+<style>
+    .skills-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.skill {
+    margin-bottom: 20px;
+}
+
+.skill h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.skill-bar {
+    width: 100%;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    padding: 10px;
+    color: #fff;
+    text-align: right;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: width 1s ease-in-out;
+}
+
+.skill-progress.html {
+    width: 90%;
+    background-color: #e44d26;
+}
+
+.skill-progress.css {
+    width: 85%;
+    background-color: #2965f1;
+}
+
+.skill-progress.javascript {
+    width: 30%;
+    background-color: #f0db4f;
+    color: #333;
+}
+
+.skill-progress.react {
+    width: 60%;
+    background-color: #61dafb;
+    color: #333;
+}
+
+.skill-progress.nodejs {
+    width: 50%;
+    background-color: #68a063;
+}
+
+.skill-progress.python {
+    width: 20%;
+    background-color: rgb(188, 15, 15);
+}
+</style>
+
+
+
+<section class="skills" id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+        <div class="skill">
+            <h4>HTML</h4>
+            <div class="skill-bar">
+                <div class="skill-progress html">90%</div>
+            </div>
+        </div>
+        <div class="skill">
+            <h4>CSS</h4>
+            <div class="skill-bar">
+                <div class="skill-progress css">85%</div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <h4>React</h4>
+            <div class="skill-bar">
+                <div class="skill-progress react">60%</div>
+            </div>
+        </div>
+        <div class="skill">
+            <h4>Node.js</h4>
+            <div class="skill-bar">
+                <div class="skill-progress nodejs">50%</div>
+            </div>
+                    <div class="skill">
+            <h4>JavaScript</h4>
+            <div class="skill-bar">
+                <div class="skill-progress javascript">30%</div>
+            </div>
+        </div>    
+        <div class="skill">
+            <h4>Python</h4>
+            <div class="skill-bar">
+                <div class="skill-progress python">20%</div>
+            </div>
+        </div>
+    </div>
+</section>
